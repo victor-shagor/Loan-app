@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Apply</title>
+ <link rel="stylesheet" href="materialize.min.css">
+ <link href="icon.css" rel="stylesheet">
+ <link rel="stylesheet" href="styles/dashboard.css">
+</head>
+<header>
+  <nav class="nav-wraper">
+   <div class="container">
+    <a href="index.html" class="brand-logo"><img src="img/logo.png" alt=""></a>
+    </a>    
+    <ul class="right hide-on-med-and-down">
+     <li><a href="#">Home</a></li>
+     <li><a href="#">Logout</a></li>
+     <li><a href="#" class="btn-floating white">
+       <i class="material-icons">person</i>
+     </a></li>
+     <span class="user">Welcome Name</span>
+    </ul>
+   </div>
+  </nav>
+  <ul id="slide-out" class="sidenav">
+        <li><div class="user-view">
+            <div class="background">
+            </div>
+            <a href="#user"><img class="circle" src="img/messi.jpeg"></a>
+            <a href="#name"><span class="white-text name">John Doe</span></a>
+            <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+          </div></li>
+    <li><a href="./index.html">Apply for Loan</a></li>
+    <li><a href="#">View loan applications</a></li>
+  </ul>
+  <a href="#" data-target="slide-out" class="sidenav-trigger">
+      <i class="material-icons">menu</i>
+  </a>
+  <div class="container">
+    <div class="row">
+     <div class="apply z-depth-4">
+        <form>
+            <h4>Loan Application</h4>
+            <div class="input-field">
+             <input type="number" id="Amount">
+             <label for="Amount">Amount</label>
+            </div>
+              <select class="browser-default">
+                <option value="" disabled selected>Choose Tenor</option>
+                <option value="1">4months</option>
+                <option value="2">6months</option>
+                <option value="3">8months</option>
+                <option value="3">12months</option>
+              </select>
+              <a href="#" class="btn-large submit">Login</a>
+                 </form>
+                </div>
+     </div>
+    </div>
+   </div>
+<body>
+  <script src="jquery-3.3.1.min.js"></script>
+ <script src="materialize.min.js"></script>
+<script>
+  $(document).ready(function(){
+   $('.sidenav').sidenav();
+   $('.button-collapse').sideNav();
+   $('select').formSelect();
+  })
+  </script>
+</body>
+</html>

@@ -32,8 +32,8 @@
             <a href="#name"><span class="white-text name">John Doe</span></a>
             <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
           </div></li>
-    <li><a href="./index.html">Apply for Loan</a></li>
-    <li><a href="#">View loan applications</a></li>
+    <li><a href="#">Apply for Loan</a></li>
+    <li><a href="./viewLoan.html">View loan applications</a></li>
   </ul>
   <a href="#" data-target="slide-out" class="sidenav-trigger">
       <i class="material-icons">menu</i>
@@ -65,8 +65,9 @@
  <script src="materialize.min.js"></script>
 <script>
   $(document).ready(function(){
-   $('.sidenav').sidenav();
-   $('.button-collapse').sideNav();
+    let name = localStorage.lastname
+   $('.sidenav').sidenav()
+   $('.user').html(`Welcome ${name}`)
    $('select').formSelect();
   })
   </script>

@@ -4,7 +4,7 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <meta http-equiv="X-UA-Compatible" content="ie=edge">
- <title>Dashboard</title>
+ <title>View Loans</title>
  <link rel="stylesheet" href="materialize.min.css">
  <link href="icon.css" rel="stylesheet">
  <link rel="stylesheet" href="styles/dashboard.css">
@@ -33,17 +33,46 @@
             <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
           </div></li>
     <li><a href="./apply.html">Apply for Loan</a></li>
-    <li><a href="./vieewLoan.html">View loan applications</a></li>
+    <li><a href="#">View loan applications</a></li>
   </ul>
   <a href="#" data-target="slide-out" class="sidenav-trigger">
       <i class="material-icons">menu</i>
   </a>
+  <div class="container">
+  <table class="striped responsive-table">
+    <thead>
+      <tr>
+          <th>Name</th>
+          <th>Item Name</th>
+          <th>Item Price</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Alvin</td>
+        <td>Eclair</td>
+        <td>$0.87</td>
+      </tr>
+      <tr>
+        <td>Alan</td>
+        <td>Jellybean</td>
+        <td>$3.76</td>
+      </tr>
+      <tr>
+        <td>Jonathan</td>
+        <td>Lollipop</td>
+        <td>$7.00</td>
+      </tr>
+    </tbody>
+  </table>
+ </div>
 <body>
   <script src="jquery-3.3.1.min.js"></script>
  <script src="materialize.min.js"></script>
 <script>
   $(document).ready(function(){
-    let name = localStorage.lastname
+   let name = localStorage.lastname
    $('.sidenav').sidenav()
    $('.user').html(`Welcome ${name}`)
   })

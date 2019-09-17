@@ -80,7 +80,9 @@
     dataType    : 'json'
 })
 .done(function(result) {
-        console.log(result)
+  localStorage.removeItem(lastname)
+    localStorage.lastname = result[0].lastName
+    window.location = "dashboard.html"
        })
       })
     

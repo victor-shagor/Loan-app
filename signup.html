@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Signup</title>
+ <link rel="stylesheet" href="materialize.min.css">
+ <link href="icon.css" rel="stylesheet">
+ <link rel="stylesheet" href="styles/sign.css">
+</head>
+<body>
+ <div class="container">
+  <div class="row">
+   <div class="background z-depth-4">
+      <form>
+          <h3>Sign Up</h3>
+          <div class="input-field">
+              <i class="material-icons prefix">person</i>
+           <input type="text" id="firstname">
+           <label for="firstname">First Name</label>
+          </div>
+          <div class="input-field">
+              <i class="material-icons prefix">person</i>
+            <input type="text" id="lastname">
+            <label for="lastname">Last Name</label>
+           </div>
+           <div class="input-field">
+            <i class="material-icons prefix">email</i>
+             <input type="email" id="email">
+             <label for="email">Email</label>
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix">vpn_key</i>
+              <input type="password" id="password">
+              <label for="password">password</label>
+             </div>
+             <div class="input-field">
+                <i class="material-icons prefix">phone</i>
+               <input type="text" id="phonenumber">
+               <label for="phonenumber">Phone Number</label>
+              </div>
+               <a href="#" class="btn-large submit">Sign up</a>
+               </form>
+              </div>
+   </div>
+  </div>
+ </div>
+  <script src="jquery-3.3.1.min.js"></script>
+  <script src="materialize.min.js"></script>
+  <script>
+    $(document).ready(function(){
+  $(".submit").on('click', function(e){
+   e.preventDefault()
+  let firstname = $('#firstname').val()
+  let lastname = $('#lastname').val()
+  let email = $('#email').val()
+  let password = $('#password').val()
+  let phonenumber = $('#phonenumber').val()
+  const data = {
+   firstname,
+   lastname,
+   email,
+   password,
+   phonenumber,
+   isAdmin: false
+  }
+ $.ajax({
+    type        : 'GET',
+    url         : `http://localhost:4000/user?email=${email}`,
+})
+    .done(function(res) {
+       if(res.length){
+        return console.log('user already exist')
+       }
+       $.ajax({
+    type        : 'POST',
+    url         : `http://localhost:4000/user`,
+    data        :  data,
+    dataType    : 'json'
+})
+.done(function(result) {
+        console.log(result)
+       })
+      })
+    
+})
+ })
+  </script>
+</body>
+</html>

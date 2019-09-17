@@ -44,17 +44,17 @@
         <form>
             <h4>Loan Application</h4>
             <div class="input-field">
-             <input type="number" id="Amount">
+             <input type="number" class="Amount">
              <label for="Amount">Amount</label>
             </div>
-              <select class="browser-default">
-                <option value="" disabled selected>Choose Tenor</option>
-                <option value="1">4months</option>
-                <option value="2">6months</option>
-                <option value="3">8months</option>
-                <option value="3">12months</option>
+              <select id="tenor" class="browser-default tenor">
+                <option value="" disabled selected>Choose Tenor(Months)</option>
+                <option value="4">4months</option>
+                <option value="6">6months</option>
+                <option value="8">8months</option>
+                <option value="12">12months</option>
               </select>
-              <a href="#" class="btn-large submit">Login</a>
+              <a href="#" class="btn-large submit">Apply</a>
                  </form>
                 </div>
      </div>
@@ -66,9 +66,46 @@
 <script>
   $(document).ready(function(){
     let name = localStorage.lastname
+    let email = localStorage.email
    $('.sidenav').sidenav()
    $('.user').html(`Welcome ${name}`)
    $('select').formSelect();
+   $(".submit").on('click', function(e){
+   e.preventDefault()
+  let Amount = parseInt($('.Amount').val());
+  let tenor = parseInt($('.tenor').val());
+  console.log(Amount, tenor)
+  let interest = (Amount*5) * (tenor/100)
+  let monthlyPayment = (Amount+interest)/tenor
+  const data = {
+   Amount,
+   tenor,
+   interest,
+   status: "pending",
+   balance: Amount,
+   monthlyPayment,
+   repaid: false
+  }
+ $.ajax({
+    type        : 'GET',
+    url         : `http://localhost:4000/loan?owner=${email}&repaid=false`,
+})
+    .done(function(res) {
+       if(res.length){
+        return console.log('You already have a pending or running loan')
+       }
+       $.ajax({
+    type        : 'POST',
+    url         : "http://localhost:4000/loan",
+    data        :  data,
+    dataType    : 'json'
+})
+.done(function(result) {
+
+       })
+      })
+    
+})
   })
   </script>
 </body>

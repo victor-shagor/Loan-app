@@ -9,5 +9,29 @@
       "phoneNumber": "08139471140",
       "isAdmin": true
     }
+  ],
+  "loan": [
+    {
+      "id": 1,
+      "owner": "abiolaojo@gmail.com",
+      "Amount": 5000,
+      "tenor": 2,
+      "interest": 500,
+      "status": "Approved",
+      "repaid": true,
+      "balance": 0,
+      "monthlyPayment": 2750
+    },
+    {
+      "id": 2,
+      "owner": "abiolaojo@gmail.com",
+      "Amount": 6000,
+      "tenor": 2,
+      "interest": 600,
+      "repaid": false,
+      "status": "Approved",
+      "balance": 3000,
+      "monthlyPayment": 3300
+    }
   ]
 }

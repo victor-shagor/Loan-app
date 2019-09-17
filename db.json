@@ -32,6 +32,28 @@
       "status": "Approved",
       "balance": 3000,
       "monthlyPayment": 3300
-    }
+    },
+    {
+     "id": 3,
+     "owner": "ade@gmail.com",
+     "Amount": 6000,
+     "tenor": 2,
+     "interest": 600,
+     "repaid": false,
+     "status": "pending",
+     "balance": 3000,
+     "monthlyPayment": 3300
+   },
+   {
+    "id": 4,
+    "owner": "ab@gmail.com",
+    "Amount": 6000,
+    "tenor": 2,
+    "interest": 600,
+    "repaid": false,
+    "status": "pending",
+    "balance": 3000,
+    "monthlyPayment": 3300
+  }
   ]
 }

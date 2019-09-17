@@ -57,7 +57,10 @@
     localStorage.lastname = result[0].lastName
     localStorage.removeItem(email)
     localStorage.email = result[0].email
-    window.location = "dashboard.html"
+  if(result[0].isAdmin===true){
+    window.location = "admin.html"
+  }
+  else{window.location = "dashboard.html"}
        })
       })
     

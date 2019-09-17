@@ -42,28 +42,17 @@
   <table class="striped responsive-table">
     <thead>
       <tr>
-          <th>Name</th>
-          <th>Item Name</th>
-          <th>Item Price</th>
+          <th>Amount</th>
+          <th>Tenor</th>
+          <th>Status</th>
+          <th>repaid</th>
+          <th>Balance</th>
+          <th>interest</th>
+          <th>monthlyPayment</th>
       </tr>
     </thead>
 
-    <tbody>
-      <tr>
-        <td>Alvin</td>
-        <td>Eclair</td>
-        <td>$0.87</td>
-      </tr>
-      <tr>
-        <td>Alan</td>
-        <td>Jellybean</td>
-        <td>$3.76</td>
-      </tr>
-      <tr>
-        <td>Jonathan</td>
-        <td>Lollipop</td>
-        <td>$7.00</td>
-      </tr>
+    <tbody class="table">
     </tbody>
   </table>
  </div>
@@ -73,8 +62,40 @@
 <script>
   $(document).ready(function(){
    let name = localStorage.lastname
+   let email = localStorage.email
+   let output ='';
    $('.sidenav').sidenav()
    $('.user').html(`Welcome ${name}`)
+ $.ajax({
+    type        : 'GET',
+    url         : `http://localhost:4000/loan?owner=${email}`,
+})
+    .done(function(res) {
+     console.log(res)
+       if(!res.length){
+        return console.log('There are no loans to view')
+       }
+  
+  
+ 
+  res.forEach((loan) =>{
+  
+   output += `
+   <tr>
+     <td>${loan.Amount}</td>       
+     <td>${loan.tenor}</td>
+     <td>${loan.status}</td>
+     <td>${loan.repaid}</td>
+     <td>${loan.balance}</td>
+     <td>${loan.interest}</td>
+     <td>${loan.monthlyPayment}</td>
+     </tr>
+    ` 
+    
+  
+  })
+  $('.table').html(output);
+    })
   })
   </script>
 </body>

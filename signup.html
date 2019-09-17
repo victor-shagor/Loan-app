@@ -82,6 +82,8 @@
 .done(function(result) {
   localStorage.removeItem(lastname)
     localStorage.lastname = result[0].lastName
+    localStorage.removeItem(email)
+    localStorage.email = result[0].email
     window.location = "dashboard.html"
        })
       })

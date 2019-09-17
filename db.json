@@ -1,0 +1,45 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "firstName": "Abiola",
+      "lastName": "Ojo",
+      "email": "abiolaojo@gmail.com",
+      "password": "oladimeji",
+      "phoneNumber": "08139471140",
+      "isAdmin": true
+    },
+    {
+      "firstname": "jkdjhdjd",
+      "lastname": "kjkndnndkj",
+      "email": "kjnkjdwnd",
+      "password": "hbdxhdjbdh",
+      "phonenumber": "kjdjdjd",
+      "isAdmin": "false",
+      "id": 2
+    },
+    {
+      "firstname": "gvvhgvh",
+      "lastname": "bhjbhjh",
+      "email": "bhvvhgh",
+      "password": "hghvgvhg",
+      "phonenumber": "cgffcfgf",
+      "isAdmin": "false",
+      "id": 3
+    },
+    {
+      "firstname": "khbdjbnd",
+      "lastname": "hdbbdj",
+      "email": "hbjdbhjhd",
+      "password": "bhhjsdbjhd",
+      "phonenumber": "b;hdbj",
+      "isAdmin": "false",
+      "id": 4
+    },
+    {
+      "email": "abiolaojo@gmail.com",
+      "password": "oladimeji",
+      "id": 5
+    }
+  ]
+}

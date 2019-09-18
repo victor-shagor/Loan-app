@@ -13,19 +13,21 @@
  <div class="container">
   <div class="row">
    <div class="background1 z-depth-4">
-      <form action="">
+      <form>
           <h3>Sign In</h3>
            <div class="input-field">
             <i class="material-icons prefix">email</i>
-             <input type="email" id="email" class="validate">
+             <input type="email" id="email" class="validate" required="" aria-required="true">
              <label for="email">Email</label>
+             <span class="helper-text" data-error="please enter a valid email" data-success="right">Helper text</span>
             </div>
             <div class="input-field">
               <i class="material-icons prefix">vpn_key</i>
-              <input type="password" id="password">
+              <input type="password" id="password" class="validate" required="" aria-required="true">
               <label for="password">password</label>
              </div>
-               <a href="#" class="btn-large submit">Login</a>
+               <input type="submit" class="btn-large" value="login">
+              </form>
               </div>
    </div>
   </div>
@@ -34,7 +36,7 @@
   <script src="materialize.min.js"></script>
   <script>
   $(document).ready(function(){
-  $(".submit").on('click', function(e){
+  $("form").on('submit', function(e){
    e.preventDefault()
   let email = $('#email').val()
   let password = $('#password').val()
@@ -57,7 +59,7 @@
     localStorage.lastname = result[0].lastName
     localStorage.removeItem(email)
     localStorage.email = result[0].email
-  if(result[0].isAdmin===true){
+  if(result[0].isAdmin==true){
     window.location = "admin.html"
   }
   else{window.location = "dashboard.html"}

@@ -38,10 +38,11 @@
   <a href="#" data-target="slide-out" class="sidenav-trigger">
       <i class="material-icons">menu</i>
   </a>
-  <div class="container">
+  <div class="container view">
   <table class="striped responsive-table">
     <thead>
       <tr>
+          <th></th>
           <th>Amount</th>
           <th>Tenor</th>
           <th>interest</th>
@@ -58,7 +59,7 @@
   <script src="jquery-3.3.1.min.js"></script>
  <script src="materialize.min.js"></script>
 <script>
-  $(document).ready(function(){
+  $(document).ready(function get(){
    let name = localStorage.lastname
    let email = localStorage.email
    let output ='';
@@ -80,11 +81,12 @@
   
    output += `
    <tr>
+     <td><input type="submit" class="btn delete" data-id=${loan.id} id="delete"value="Delete"></td>
      <td>${loan.Amount}</td>       
      <td>${loan.tenor}</td>
      <td>${loan.interest}</td>
      <td>${loan.monthlyPayment}</td>
-     <td><input type="submit" class ="btn approve" data-accountnumber=${loan.id} id="approval"value="Approve"><input type="submit" class ="btn reject" data-accountnumber=${loan.id} id="reject"value="reject"></td>
+     <td><input type="submit" class="btn approve" data-id=${loan.id} id="approval"value="Approve"><input type="submit" class ="btn reject" data-id=${loan.id} id="reject"value="reject"></td>
      </tr>
     ` 
     
@@ -92,6 +94,39 @@
   })
   $('.table').html(output);
     })
+  $('.view').on('click', function(event){
+    let data;
+    let id = event.target.dataset.id
+    if(event.target.classList.contains('approve')){
+      data = {status:"approved"}
+    }
+    else if(event.target.classList.contains('reject')){
+      data = {status:"rejected"}
+    }
+    $.ajax({
+    type        : 'PATCH',
+    url         : `http://localhost:4000/loan/${id}`,
+    data        :  data,
+    dataType    : 'json'
+})
+    .done(function(res) {
+     get()
+    })
+  })
+  $('.view').on('click', function(event){
+    let id;
+    if(event.target.classList.contains('delete')){
+      id = event.target.dataset.id
+    }
+    $.ajax({
+    type        : 'DELETE',
+    url         : `http://localhost:4000/loan/${id}`,
+    dataType    : 'json'
+})
+    .done(function(res) {
+     get()
+    })
+  })
   })
   </script>
 </body>

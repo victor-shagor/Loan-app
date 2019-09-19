@@ -1,3 +1,29 @@
+.body{
+  background-image: url('../img/office.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+ }
+ .diff::after{
+  content:'';
+  background-image: url('../img/office2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display:block;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  height: 100vh;
+ 
+ }
+ .content{
+   position: absolute;
+   z-index: 1;
+ }
+ table{ 
+  margin-left: 40vh;
+ }
 img{
  height: 60px;
  width: 180px;
@@ -7,7 +33,7 @@ img{
  margin-bottom: 0px;
 }
 i.material-icons{
- color: #2274F0
+ color: #2274F0;
 }
 .background{
  background-image: url('../img/ofiice3.jpg');
@@ -44,6 +70,15 @@ i.material-icons{
   color: #2274F0;
   background-color: white
  }
+ .btn{
+  margin-top: 20px;
+  border-radius: 20px;
+  background-color: #2274F0
+ }
+ .btn:hover{
+  color: #2274F0;
+  background-color: white
+ }
  .highlight{
   width: 80vh;
   border-radius: 20px;
@@ -57,4 +92,31 @@ i.material-icons{
  }
  .blue-text{
   margin-left: 90px;
+ }
+ .col > div{
+   background-color: white;
+   height: 150px;
+   opacity: 0.9;
+   margin-bottom: 10px;
+   text-align: center;
+   justify-content: center;
+   justify-items: center;
+   color: #2274F0
+ }
+ .col > div:hover{
+  background-color: whitesmoke;
+  opacity: 0.7;
+}
+ .row{
+  margin-left: 20vh;
+  margin-top: 10vh;
+ }
+ tbody{
+   background-color: white;
+   color:black;
+   opacity: 0.7;
+ }
+ thead{
+   background-color: #2274F0;
+   color: white;
  }

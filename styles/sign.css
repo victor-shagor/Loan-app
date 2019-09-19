@@ -49,3 +49,11 @@ body{
 .input-field .prefix.active {
  color: #2274F0;
 }
+.logog{
+ height: 60px;
+ width: 180px;
+}
+.nav-wraper{
+ background-color: #2274F0;
+ margin-bottom: 0px;
+}

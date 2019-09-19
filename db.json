@@ -8,6 +8,42 @@
       "password": "oladimeji",
       "phoneNumber": "08139471140",
       "isAdmin": true
+    },
+    {
+      "firstname": "mary",
+      "lastname": "jay",
+      "email": "maryjay@gmail.com",
+      "password": "oladimeji",
+      "phonenumber": "08139371140",
+      "isAdmin": "false",
+      "id": 2
+    },
+    {
+      "firstname": "joe",
+      "lastname": "williams",
+      "email": "doyin@gmail.com",
+      "password": "oladimeji",
+      "phonenumber": "090344567",
+      "isAdmin": "false",
+      "id": 3
+    },
+    {
+      "firstname": "ewredf",
+      "lastname": "effeef",
+      "email": "viccky222k@yahoo.com",
+      "password": "oladimeji",
+      "phonenumber": "89458",
+      "isAdmin": "false",
+      "id": 4
+    },
+    {
+      "firstname": "jnndjudu",
+      "lastname": "jdjejdu",
+      "email": "ojoabiola@gmail.com",
+      "password": "mkdkmk",
+      "phonenumber": "88399378",
+      "isAdmin": "false",
+      "id": 5
     }
   ],
   "loan": [
@@ -43,6 +79,16 @@
       "balance": 3000,
       "monthlyPayment": 3300,
       "id": 3
+    },
+    { "owner": "maryjay@gmail.com",
+      "Amount": "5000",
+      "tenor": "4",
+      "interest": "1000",
+      "status": "pending",
+      "balance": "5000",
+      "monthlyPayment": "1500",
+      "repaid": "false",
+      "id": 4
     }
   ]
 }

@@ -32,7 +32,7 @@
             <a href="#name"><span class="white-text name">John Doe</span></a>
             <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
           </div></li>
-    <li><a href="./dashboard.html">dashboard</a></li>
+    <li><a href="./admin.html">dashboard</a></li>
     <li><a href="./viewRequest.html">View loan Request</a></li>
     <li><a href="./viewAllLoans">View all Loans</a></li>
   </ul>
@@ -73,12 +73,6 @@
     url         : `http://localhost:4000/loan`,
 })
     .done(function(res) {
-       if(!res.length){
-        return $('.error').html('There are no loans to view')
-       }
-  
-  
- 
   res.forEach((loan) =>{
   
    output += `

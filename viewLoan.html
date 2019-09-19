@@ -78,12 +78,6 @@
     url         : `http://localhost:4000/loan?owner=${email}`,
 })
     .done(function(res) {
-     console.log(res)
-       if(!res.length){
-        return $('.error').html('There are no loans to view')
-       }
-  
-  
  
   res.forEach((loan) =>{
   

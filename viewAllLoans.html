@@ -4,12 +4,12 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <meta http-equiv="X-UA-Compatible" content="ie=edge">
- <title>Dashboard</title>
+ <title>View Loans</title>
  <link rel="stylesheet" href="materialize.min.css">
  <link href="icon.css" rel="stylesheet">
  <link rel="stylesheet" href="styles/dashboard.css">
 </head>
-<header>
+<header class="diff">
   <nav class="nav-wraper">
    <div class="container">
     <a href="index.html" class="brand-logo"><img src="img/logo.png" alt=""></a>
@@ -29,52 +29,72 @@
             <div class="background">
             </div>
             <a href="#user"><img class="circle" src="img/messi.jpeg"></a>
-            <a href="#name"><span class="blue-text name">John Doe</span></a>
+            <a href="#name"><span class="white-text name">John Doe</span></a>
             <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
           </div></li>
+    <li><a href="./dashboard.html">dashboard</a></li>
     <li><a href="./viewRequest.html">View loan Request</a></li>
-    <li><a href="./viewAllLoans.html">View all loans</a></li>
+    <li><a href="./viewAllLoans">View all Loans</a></li>
   </ul>
+  <div class="content">
   <a href="#" data-target="slide-out" class="sidenav-trigger">
       <i class="material-icons">menu</i>
   </a>
-  <div class="container">
-      <div class="row">
-          <div class="col s6">
-              <div class="z-depth-5">
-                  <h4>6</h4>
-                  <p>pending loan applications</p>
-              </div>
-          </div>
-          <div class="col s6">
-              <div class="z-depth-5">
-                <h4>10</h4>
-                <p>new users yet to be verified</p>
-              </div>
-          </div>
-          <div class="col s6">
-              <div class="z-depth-5">
-                  <h4>7</h4>
-                  <p>defaulters</p>
-              </div>
-          </div>
-          <div class="col s6">
-              <div class="z-depth-5">
-                  <h4>7</h4>
-                  <p>defaulters</p>
-              </div>
-          </div>
-        </div>
-      </div>
-<body class="body">
+  <div class="container view">
+    <div class="error red-text"></div>
+  <table class="striped centered responsive-table white-text">
+    <thead>
+      <tr>
+          <th>Amount</th>
+          <th>Tenor</th>
+          <th>interest</th>
+          <th>monthlyPayment</th>
+      </tr>
+    </thead>
+
+    <tbody class="table">
+    </tbody>
+  </table>
+ </div>
+</div>
+</header>
+<body>
   <script src="jquery-3.3.1.min.js"></script>
  <script src="materialize.min.js"></script>
 <script>
-  $(document).ready(function(){
-    let name = localStorage.lastname
+  $(document).ready(function get(){
+   let name = localStorage.lastname
+   let email = localStorage.email
+   let output ='';
    $('.sidenav').sidenav()
    $('.user').html(`Welcome ${name}`)
-   $('.out').on('click', function(){
+ $.ajax({
+    type        : 'GET',
+    url         : `http://localhost:4000/loan`,
+})
+    .done(function(res) {
+       if(!res.length){
+        return $('.error').html('There are no loans to view')
+       }
+  
+  
+ 
+  res.forEach((loan) =>{
+  
+   output += `
+   <tr>
+     <td>${loan.Amount}</td>       
+     <td>${loan.tenor}</td>
+     <td>${loan.interest}</td>
+     <td>${loan.monthlyPayment}</td>
+     </tr>
+    ` 
+    
+  
+  })
+  $('.table').html(output);
+    })
+  $('.out').on('click', function(){
      localStorage.removeItem(lastname)
      localStorage.removeItem(email)
    })

@@ -9,14 +9,15 @@
  <link href="icon.css" rel="stylesheet">
  <link rel="stylesheet" href="styles/dashboard.css">
 </head>
-<header>
+<header class="diff">
+  
   <nav class="nav-wraper">
    <div class="container">
     <a href="index.html" class="brand-logo"><img src="img/logo.png" alt=""></a>
     </a>    
     <ul class="right hide-on-med-and-down">
-     <li><a href="#">Home</a></li>
-     <li><a href="#">Logout</a></li>
+     <li><a href="index.html">Home</a></li>
+     <li><a class="out" href="signin.html">Logout</a></li>
      <li><a href="#" class="btn-floating white">
        <i class="material-icons">person</i>
      </a></li>
@@ -32,14 +33,17 @@
             <a href="#name"><span class="white-text name">John Doe</span></a>
             <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
           </div></li>
+    <li><a href="./dashboard.html">dashboard</a></li>
     <li><a href="./apply.html">Apply for Loan</a></li>
     <li><a href="#">View loan applications</a></li>
   </ul>
+  <div class="content">
   <a href="#" data-target="slide-out" class="sidenav-trigger">
       <i class="material-icons">menu</i>
   </a>
   <div class="container">
-  <table class="striped responsive-table">
+    <div class="error red-text"></div>
+  <table class="striped centered responsive-table white-text">
     <thead>
       <tr>
           <th>Amount</th>
@@ -56,6 +60,8 @@
     </tbody>
   </table>
  </div>
+</div>
+</header>
 <body>
   <script src="jquery-3.3.1.min.js"></script>
  <script src="materialize.min.js"></script>
@@ -63,6 +69,7 @@
   $(document).ready(function(){
    let name = localStorage.lastname
    let email = localStorage.email
+   console.log(email)
    let output ='';
    $('.sidenav').sidenav()
    $('.user').html(`Welcome ${name}`)
@@ -73,7 +80,7 @@
     .done(function(res) {
      console.log(res)
        if(!res.length){
-        return console.log('There are no loans to view')
+        return $('.error').html('There are no loans to view')
        }
   
   
@@ -96,6 +103,10 @@
   })
   $('.table').html(output);
     })
+    $('.out').on('click', function(){
+     localStorage.removeItem(lastname)
+     localStorage.removeItem(email)
+   })
   })
   </script>
 </body>

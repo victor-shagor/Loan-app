@@ -15,8 +15,8 @@
     <a href="index.html" class="brand-logo"><img src="img/logo.png" alt=""></a>
     </a>    
     <ul class="right hide-on-med-and-down">
-     <li><a href="#">Home</a></li>
-     <li><a href="#">Logout</a></li>
+     <li><a href="index.html">Home</a></li>
+     <li><a class="out" href="signin.html">Logout</a></li>
      <li><a href="#" class="btn-floating white">
        <i class="material-icons">person</i>
      </a></li>
@@ -37,7 +37,35 @@
   <a href="#" data-target="slide-out" class="sidenav-trigger">
       <i class="material-icons">menu</i>
   </a>
-<body>
+  <div class="container">
+      <div class="row">
+          <div class="col s6">
+              <div class="z-depth-5">
+                  <h4>6</h4>
+                  <p>pending loan applications</p>
+              </div>
+          </div>
+          <div class="col s6">
+              <div class="z-depth-5">
+                <h4>10</h4>
+                <p>new users yet to be verified</p>
+              </div>
+          </div>
+          <div class="col s6">
+              <div class="z-depth-5">
+                  <h4>7</h4>
+                  <p>defaulters</p>
+              </div>
+          </div>
+          <div class="col s6">
+              <div class="z-depth-5">
+                  <h4>7</h4>
+                  <p>defaulters</p>
+              </div>
+          </div>
+        </div>
+      </div>
+<body class="body">
   <script src="jquery-3.3.1.min.js"></script>
  <script src="materialize.min.js"></script>
 <script>
@@ -45,6 +73,10 @@
     let name = localStorage.lastname
    $('.sidenav').sidenav()
    $('.user').html(`Welcome ${name}`)
+   $('.out').on('click', function(){
+     localStorage.removeItem(lastname)
+     localStorage.removeItem(email)
+   })
   })
   </script>
 </body>

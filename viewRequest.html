@@ -9,14 +9,14 @@
  <link href="icon.css" rel="stylesheet">
  <link rel="stylesheet" href="styles/dashboard.css">
 </head>
-<header>
+<header class="diff">
   <nav class="nav-wraper">
    <div class="container">
     <a href="index.html" class="brand-logo"><img src="img/logo.png" alt=""></a>
     </a>    
     <ul class="right hide-on-med-and-down">
-     <li><a href="#">Home</a></li>
-     <li><a href="#">Logout</a></li>
+     <li><a href="index.html">Home</a></li>
+     <li><a class="out" href="signin.html">Logout</a></li>
      <li><a href="#" class="btn-floating white">
        <i class="material-icons">person</i>
      </a></li>
@@ -32,13 +32,16 @@
             <a href="#name"><span class="white-text name">John Doe</span></a>
             <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
           </div></li>
+    <li><a href="./dashboard.html">dashboard</a></li>
     <li><a href="./apply.html">Apply for Loan</a></li>
     <li><a href="#">View loan applications</a></li>
   </ul>
+  <div class="content">
   <a href="#" data-target="slide-out" class="sidenav-trigger">
       <i class="material-icons">menu</i>
   </a>
   <div class="container view">
+    <div class="error red-text"></div>
   <table class="striped responsive-table">
     <thead>
       <tr>
@@ -55,6 +58,8 @@
     </tbody>
   </table>
  </div>
+</div>
+</header>
 <body>
   <script src="jquery-3.3.1.min.js"></script>
  <script src="materialize.min.js"></script>
@@ -70,9 +75,8 @@
     url         : `http://localhost:4000/loan?status=pending`,
 })
     .done(function(res) {
-     console.log(res)
        if(!res.length){
-        return console.log('There are no loans to view')
+        return $('.error').html('There are no loans to view')
        }
   
   
@@ -96,9 +100,11 @@
     })
   $('.view').on('click', function(event){
     let data;
+    if(window.confirm("Are you Sure?")){
     let id = event.target.dataset.id
     if(event.target.classList.contains('approve')){
       data = {status:"approved"}
+    }
     }
     else if(event.target.classList.contains('reject')){
       data = {status:"rejected"}
@@ -115,8 +121,10 @@
   })
   $('.view').on('click', function(event){
     let id;
+    if(window.confirm("Are you Sure?")){
     if(event.target.classList.contains('delete')){
       id = event.target.dataset.id
+    }
     }
     $.ajax({
     type        : 'DELETE',
@@ -127,6 +135,10 @@
      get()
     })
   })
+  $('.out').on('click', function(){
+     localStorage.removeItem(lastname)
+     localStorage.removeItem(email)
+   })
   })
   </script>
 </body>

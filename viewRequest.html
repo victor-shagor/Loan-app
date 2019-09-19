@@ -31,9 +31,9 @@
             <a href="#user"><img class="circle" src="img/messi.jpeg"></a>
             <a href="#name"><span class="white-text name">John Doe</span></a>
             <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
-          </div></li>
-    <li><a href="./viewAllLoans">View all Loans</a></li>
-    <li><a href="./dashboard.html">dashboard</a></li>
+          </div></li>    
+          <li><a href="./admin.html">dashboard</a></li>
+    <li><a href="./viewRequest.html">View loan Request</a></li>
     <li><a href="./viewAllLoans.html">View all Loans</a></li>
   </ul>
   <div class="content">
@@ -46,6 +46,7 @@
     <thead>
       <tr>
           <th></th>
+          <th>requester</th>
           <th>Amount</th>
           <th>Tenor</th>
           <th>interest</th>
@@ -75,17 +76,12 @@
     url         : `http://localhost:4000/loan?status=pending`,
 })
     .done(function(res) {
-       if(!res.length){
-        return $('.error').html('There are no loans to view')
-       }
-  
-  
- 
   res.forEach((loan) =>{
   
    output += `
    <tr>
      <td><input type="submit" class="btn delete" data-id=${loan.id} id="delete"value="Delete"></td>
+     <td>${loan.owner}</td>
      <td>${loan.Amount}</td>       
      <td>${loan.tenor}</td>
      <td>${loan.interest}</td>
@@ -100,11 +96,9 @@
     })
   $('.view').on('click', function(event){
     let data;
-    if(window.confirm("Are you Sure?")){
     let id = event.target.dataset.id
     if(event.target.classList.contains('approve')){
       data = {status:"approved"}
-    }
     }
     else if(event.target.classList.contains('reject')){
       data = {status:"rejected"}
@@ -116,15 +110,14 @@
     dataType    : 'json'
 })
     .done(function(res) {
-     get()
+      get()
     })
+    
   })
   $('.view').on('click', function(event){
     let id;
-    if(window.confirm("Are you Sure?")){
     if(event.target.classList.contains('delete')){
       id = event.target.dataset.id
-    }
     }
     $.ajax({
     type        : 'DELETE',
@@ -132,8 +125,9 @@
     dataType    : 'json'
 })
     .done(function(res) {
-     get()
+      get()
     })
+    
   })
   $('.out').on('click', function(){
      localStorage.removeItem(lastname)

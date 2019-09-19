@@ -78,15 +78,15 @@
   let Amount = parseInt($('.Amount').val());
   let tenor = parseInt($('.tenor').val());
   let interest = (Amount*5) * (tenor/100)
-  let monthlyPayment = (Amount+interest)/tenor
+  let monthlyPayment = Math.ceil((Amount+interest)/tenor)
   if(!Amount || Amount < 5000){
     $('.error').append(`<p class="error-msg">You cannot borrow less than 5000</p>`)
-    setTimeout(function(){ $('.error-msg').remove()}, 3000) 
+    setTimeout(function(){ $('.error-msg').remove()}, 5000) 
     return
   }
   if(!tenor){
     $('.error').append(`<p class="error-msg">Select tenor</p>`)
-    setTimeout(function(){ $('.error-msg').remove()}, 3000) 
+    setTimeout(function(){ $('.error-msg').remove()}, 5000) 
     return
   }
   const data = {
@@ -106,7 +106,7 @@
     .done(function(res) {
        if(res.length){
         $('.error').append(`<p class="error-msg">You have a pending or running loan</p>`)
-    setTimeout(function(){ $('.error-msg').remove()}, 3000) 
+    setTimeout(function(){ $('.error-msg').remove()}, 5000) 
     return
        }
        $.ajax({
@@ -117,7 +117,9 @@
 })
 .done(function(result) {
   $('.success').append(`<p class="success-msg">Loan Booked successfully</p>`)
-    setTimeout(function(){ $('.success-msg').remove()}, 3000)
+    setTimeout(function(){ $('.success-msg').remove()}, 5000)
+   $('.Amount').val() = '';
+   $('.tenor').val() = '';
        })
       })
     

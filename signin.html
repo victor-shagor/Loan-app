@@ -20,7 +20,7 @@
    <div class="background1 z-depth-4">
       <form>
           <h3>Sign In</h3>
-          <div class="error"></div>
+          <div class="error red-text"></div>
            <div class="input-field">
             <i class="material-icons prefix">email</i>
              <input type="email" id="email" class="validate" required="" aria-required="true">
@@ -61,7 +61,7 @@
  console.log(result)
  if(!result.length){
   $('.error').append(`<p class="error-msg">Email or password is incorrect</p>`)
-    setTimeout(function(){ $('.error-msg').remove()}, 3000)
+    setTimeout(function(){ $('.error-msg').remove()}, 5000)
     return
  }
     localStorage.lastname=''

@@ -45,6 +45,7 @@
   <table class="striped centered responsive-table white-text">
     <thead>
       <tr>
+          <th>requester</th>
           <th>Amount</th>
           <th>Tenor</th>
           <th>interest</th>
@@ -77,6 +78,8 @@
   
    output += `
    <tr>
+    
+      <td>${loan.owner}</td>
      <td>${loan.Amount}</td>       
      <td>${loan.tenor}</td>
      <td>${loan.interest}</td>

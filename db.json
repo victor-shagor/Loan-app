@@ -35,6 +35,15 @@
       "phonenumber": "090344567",
       "isAdmin": "false",
       "id": 3
+    },
+    {
+      "firstname": "simon",
+      "lastname": "julius",
+      "email": "sinj@gmail.com",
+      "password": "oladimeji",
+      "phonenumber": "876543",
+      "isAdmin": "false",
+      "id": 4
     }
   ],
   "loan": [
@@ -92,6 +101,17 @@
       "repaid": true,
       "balance": 0,
       "monthlyPayment": 7500
+    },
+    {
+      "Amount": "5000",
+      "tenor": "6",
+      "interest": "1500",
+      "status": "approved",
+      "balance": "5000",
+      "monthlyPayment": "1084",
+      "repaid": "false",
+      "owner": "sinj@gmail.com",
+      "id": 5
     }
   ]
 }
